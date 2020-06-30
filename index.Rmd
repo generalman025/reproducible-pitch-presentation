@@ -9,8 +9,15 @@ output: slidy_presentation
 knitr::opts_chunk$set()
 ```
 
-## My Application : Covid-19 Pandemic Worldwide
+## Application : Covid-19 Pandemic Worldwide
 
+This application provide global view and top ten rank for covid-19 global pandemic information.
+\
+```{r pressure, echo=FALSE, out.width = '100%'}
+knitr::include_graphics("site.png")
+```
+\
+There are 3 steps to built plots in this application
 
 ## Step 1 : Load library and data
 We use the source data from <a href="https://corona.lmao.ninja/">Novel COVID API</a>
@@ -60,7 +67,7 @@ fig <- fig %>% layout(title = 'Global View', geo = g)
 fig
 ```
 
-## Step 3 : Plot Top 10 Information
+## Step 3 : Plot Top 10 Rank
 
 ```{r secondplot1, warning=FALSE, message=FALSE}
 top10 <- covid19 %>% arrange(desc(val)) %>% top_n(10)
@@ -73,7 +80,7 @@ fig <- plot_ly(
   x = top10$country,
   y = top10$val,
   type = "bar")
-fig <- fig %>% layout(title = paste('Top 10 :', title))
+fig <- fig %>% layout(title = paste('Top 10 Rank :', title))
 fig
 ```
 
